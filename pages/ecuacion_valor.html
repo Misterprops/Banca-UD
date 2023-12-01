@@ -33,7 +33,7 @@
                 <input type="number" id="C3"/>
                 <select id="clase">
                     <option value="1">%</option>
-                    <option value="2">num</option>
+                    <option value="2">No %</option>
                 </select>
                 <select id="anticipado">
                     <option value="">Seleccionar</option>
@@ -130,6 +130,7 @@
             label.appendChild(nodo);
             const input = document.createElement("input");
             input.setAttribute("id",`PA${i+1}`);
+            input.setAttribute("type","number");
             div.appendChild(label);
             div.appendChild(input);
             const label2 = document.createElement("label");
@@ -137,6 +138,7 @@
             label2.appendChild(nodo2);
             const input2 = document.createElement("input");
             input2.setAttribute("id",`MA${i+1}`);
+            input2.setAttribute("type","number");
             div.appendChild(label2);
             div.appendChild(input2);
         }

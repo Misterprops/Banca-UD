@@ -38,7 +38,7 @@
                     <input type="number" id="C2"/>
                     <select id="clase">
                         <option value="1">%</option>
-                        <option value="2">num</option>
+                        <option value="2">No %</option>
                     </select>
                     <select id="anticipado">
                         <option value="">Seleccionar</option>
@@ -111,10 +111,10 @@
                 opn.setAttribute("value","2");
                 opr.setAttribute("value","3");
                 opa.setAttribute("value","4");
-                ops.text = "Vf";
-                opn.text = "n";
-                opr.text = "r";
-                opa.text = "aplazado";
+                ops.text = "Valor futuro";
+                opn.text = "Numero de pagos";
+                opr.text = "Cuota";
+                opa.text = "Pagos aplazados";
                 select.add(ops);
                 select.add(opn);
                 select.add(opr);
@@ -124,10 +124,10 @@
                 let l2 = document.getElementById("L2");
                 let l3 = document.getElementById("L3");
                 let l4 = document.getElementById("L4");
-                l1.innerHTML = "R";
-                l2.innerHTML = "i";
-                l3.innerHTML = "n";
-                l4.innerHTML = "aplazados";
+                l1.innerHTML = "Cuota";
+                l2.innerHTML = "Interes";
+                l3.innerHTML = "Numero de pagos";
+                l4.innerHTML = "Pagos aplazados";
                 document.getElementById("clase").style.display = "inline-block";
                 document.getElementById("tasa").style.display = "inline-block";
                 document.getElementById("periodo").style.display = "inline-block";
@@ -157,10 +157,10 @@
                 opn.setAttribute("value","2");
                 opr.setAttribute("value","3");
                 opa.setAttribute("value","4");
-                ops.text = "Vp";
-                opn.text = "n";
-                opr.text = "r";
-                opa.text = "aplazado";
+                ops.text = "Valor Presente";
+                opn.text = "Numero de pagos";
+                opr.text = "Cuota";
+                opa.text = "Pagos aplazados";
                 select.add(ops);
                 select.add(opn);
                 select.add(opr);
@@ -170,10 +170,10 @@
                 let l2 = document.getElementById("L2");
                 let l3 = document.getElementById("L3");
                 let l4 = document.getElementById("L4");
-                l1.innerHTML = "R";
-                l2.innerHTML = "i";
-                l3.innerHTML = "n";
-                l4.innerHTML = "aplazados";
+                l1.innerHTML = "Cuota";
+                l2.innerHTML = "Interes";
+                l3.innerHTML = "Numero de pagos";
+                l4.innerHTML = "Pagos aplazados";
                 document.getElementById("clase").style.display = "inline-block";
                 document.getElementById("tasa").style.display = "inline-block";
                 document.getElementById("periodo").style.display = "inline-block";
@@ -207,10 +207,10 @@
                         let l2 = document.getElementById("L2");
                         let l3 = document.getElementById("L3");
                         let l4 = document.getElementById("L4");
-                        l1.innerHTML = "R";
-                        l2.innerHTML = "i";
-                        l3.innerHTML = "n";
-                        l4.innerHTML = "aplazados";
+                        l1.innerHTML = "Cuota";
+                        l2.innerHTML = "Interes";
+                        l3.innerHTML = "Numero de pagos";
+                        l4.innerHTML = "Pagos aplazados";
                         break;
                     }
                     case 2:{
@@ -219,13 +219,13 @@
                         let l3 = document.getElementById("L3");
                         let l4 = document.getElementById("L4");
                         if(parseInt(buscarVal.value) == 1){
-                            l1.innerHTML = "Vf";
+                            l1.innerHTML = "Valor Futuro";
                         }else{
-                            l1.innerHTML = "Vp";
+                            l1.innerHTML = "Valor Presente";
                         }
-                        l2.innerHTML = "i";
-                        l3.innerHTML = "R";
-                        l4.innerHTML = "aplazados";
+                        l2.innerHTML = "Interes";
+                        l3.innerHTML = "Cuota";
+                        l4.innerHTML = "Pagos aplazados";
                         break;
                     }
                     case 3:{
@@ -234,13 +234,13 @@
                         let l3 = document.getElementById("L3");
                         let l4 = document.getElementById("L4");
                         if(parseInt(buscarVal.value) == 1){
-                            l1.innerHTML = "Vf";
+                            l1.innerHTML = "Valor Futuro";
                         }else{
-                            l1.innerHTML = "Vp";
+                            l1.innerHTML = "Valor Presente";
                         }
-                        l2.innerHTML = "i";
-                        l3.innerHTML = "n";
-                        l4.innerHTML = "aplazados";
+                        l2.innerHTML = "Interes";
+                        l3.innerHTML = "Numero de pagos";
+                        l4.innerHTML = "Pagos aplazados";
                         break;
                     }
                     case 4:{
@@ -249,13 +249,13 @@
                         let l3 = document.getElementById("L3");
                         let l4 = document.getElementById("L4");
                         if(parseInt(buscarVal.value) == 1){
-                            l1.innerHTML = "Vf";
+                            l1.innerHTML = "Valor Futuro";
                         }else{
-                            l1.innerHTML = "Vp";
+                            l1.innerHTML = "Valor Presente";
                         }
-                        l2.innerHTML = "i";
-                        l3.innerHTML = "R";
-                        l4.innerHTML = "n";
+                        l2.innerHTML = "Interes";
+                        l3.innerHTML = "Cuota";
+                        l4.innerHTML = "Numero de pagos";
                         break;
                     }
                     default:{

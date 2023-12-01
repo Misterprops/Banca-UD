@@ -27,9 +27,9 @@
             <h3 class="hallar">Hallar:</h3>
             <select id="buscar" class="buscador">
                 <option>Seleccionar</option>
-                <option value="1">VP</option>
-                <option value="2">i</option>
-                <option value="3">R</option>
+                <option value="1">Valor Presente</option>
+                <option value="2">Interes</option>
+                <option value="3">Cuota</option>
             </select>
             <div class="datos">
                 <label for="C1" id="L1"></label>
@@ -38,7 +38,7 @@
                 <input type="number" id="C2"/>
                 <select id="clase">
                     <option value="1">%</option>
-                    <option value="2">num</option>
+                    <option value="2">No %</option>
                 </select>
                 <select id="anticipado">
                     <option value="">Seleccionar</option>
@@ -76,7 +76,7 @@
                 <label id="condicion"></label>
                 <select id="a_clase">
                     <option value="1">%</option>
-                    <option value="2">num</option>
+                    <option value="2">No %</option>
                 </select>
                 <select id="a_anticipado">
                     <option value="">Seleccionar</option>
@@ -139,9 +139,9 @@
                 document.getElementById("resultado").style.display = "inline-block";
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
-                l1.innerHTML = "r";
-                l2.innerHTML = "i";
-                document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                l1.innerHTML = "Cuota";
+                l2.innerHTML = "Interes";
+                document.getElementById("condicion").innerHTML = "Considerar como i efectivo de periodo:";
                 break;
             }
             case 2:{
@@ -164,9 +164,9 @@
                 document.getElementById("resultado").style.display = "inline-block";
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
-                l1.innerHTML = "VP";
-                l2.innerHTML = "R";
-                document.getElementById("condicion").innerHTML = "hallar i como:";
+                l1.innerHTML = "Valor Presente";
+                l2.innerHTML = "Cuota";
+                document.getElementById("condicion").innerHTML = "Hallar i como:";
                 break;
             }
             case 3:{
@@ -189,9 +189,9 @@
                 document.getElementById("resultado").style.display = "inline-block";
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
-                l1.innerHTML = "VP";
-                l2.innerHTML = "i";
-                document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                l1.innerHTML = "Valor Presente";
+                l2.innerHTML = "Interes";
+                document.getElementById("condicion").innerHTML = "Considerar como i efectivo de periodo:";
                 break;
             }
             default:{

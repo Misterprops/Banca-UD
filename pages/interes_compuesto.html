@@ -27,10 +27,10 @@
             <h3 class="hallar">Hallar:</h3>
             <select id="buscar" class="buscador">
                 <option>Seleccionar</option>
-                <option value="1">S</option>
-                <option value="2">P</option>
-                <option value="3">i</option>
-                <option value="4">n</option>
+                <option value="1">Valor futuro</option>
+                <option value="2">Valor actual</option>
+                <option value="3">Interes</option>
+                <option value="4">Numero de pagos</option>
             </select>
             <div class="datos">
                 <label for="C1" id="L1"></label>
@@ -133,10 +133,10 @@
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
                 let l3 = document.getElementById("L3");
-                l1.innerHTML = "P";
-                l2.innerHTML = "i";
-                l3.innerHTML = "n";
-                document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                l1.innerHTML = "Valor actual";
+                l2.innerHTML = "Interes";
+                l3.innerHTML = "Numero de pagos";
+                document.getElementById("condicion").innerHTML = "Considerar como i efectivo de periodo:";
                 break;
             }
             case 2:{
@@ -160,10 +160,10 @@
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
                 let l3 = document.getElementById("L3");
-                l1.innerHTML = "S";
-                l2.innerHTML = "i";
-                l3.innerHTML = "n";
-                document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                l1.innerHTML = "Valor futuro";
+                l2.innerHTML = "Interes";
+                l3.innerHTML = "Numero de pagos";
+                document.getElementById("condicion").innerHTML = "Considerar como i efectivo de periodo:";
                 break;
             }
             case 3:{
@@ -187,10 +187,10 @@
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
                 let l3 = document.getElementById("L3");
-                l1.innerHTML = "S";
-                l2.innerHTML = "P";
-                l3.innerHTML = "n";
-                document.getElementById("condicion").innerHTML = "hallar i como:";
+                l1.innerHTML = "Valor futuro";
+                l2.innerHTML = "Valor actual";
+                l3.innerHTML = "Numero de pagos";
+                document.getElementById("condicion").innerHTML = "Hallar i como:";
                 break;
             }
             case 4:{
@@ -214,10 +214,10 @@
                 let l1 = document.getElementById("L1");
                 let l2 = document.getElementById("L2");
                 let l3 = document.getElementById("L3");
-                l1.innerHTML = "S";
-                l2.innerHTML = "i";
-                l3.innerHTML = "P";
-                document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                l1.innerHTML = "Valor futuro";
+                l2.innerHTML = "Interes";
+                l3.innerHTML = "Valor actual";
+                document.getElementById("condicion").innerHTML = "Considerar como i efectivo de periodo:";
                 break;
             }
             default:{

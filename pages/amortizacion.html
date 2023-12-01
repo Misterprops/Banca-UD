@@ -27,8 +27,8 @@
                 <h3 class="hallar">Falta:</h3>
                 <select id="buscar" class="buscador">
                     <option>Seleccionar</option>
-                    <option value="1">VP</option>
-                    <option value="2">R</option>
+                    <option value="1">Valor Presente</option>
+                    <option value="2">Cuota</option>
                 </select>
                 <div class="datos">
                     <label for="C1" id="L1"></label>
@@ -37,7 +37,7 @@
                     <input type="number" id="C2"/>
                     <select id="clase">
                         <option value="1">%</option>
-                        <option value="2">num</option>
+                        <option value="2">No %</option>
                     </select>
                     <select id="anticipado">
                         <option value="">Seleccionar</option>
@@ -83,7 +83,7 @@
                     </select>
                     <label for="C4" id="L4">Valor</label>
                     <input type="number" id="C4"/>
-                    <label for="C5" id="L5">En cuota</label>
+                    <label for="C5" id="L5">En la cuota</label>
                     <input type="number" id="C5"/>
                     
                 </div>
@@ -112,10 +112,10 @@
                     let l1 = document.getElementById("L1");
                     let l2 = document.getElementById("L2");
                     let l3 = document.getElementById("L3");
-                    l1.innerHTML = "R";
-                    l2.innerHTML = "i";
-                    l3.innerHTML = "n";
-                    document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                    l1.innerHTML = "Cuota";
+                    l2.innerHTML = "Interes";
+                    l3.innerHTML = "Numero de pagos";
+                    document.getElementById("condicion").innerHTML = "Considerar como i efectivo no anticipado de periodo:";
                     aparecer();
                     break;
                 }
@@ -123,10 +123,10 @@
                     let l1 = document.getElementById("L1");
                     let l2 = document.getElementById("L2");
                     let l3 = document.getElementById("L3");
-                    l1.innerHTML = "VP";
-                    l2.innerHTML = "i";
-                    l3.innerHTML = "n";
-                    document.getElementById("condicion").innerHTML = "considerar como i efectivo de periodo:";
+                    l1.innerHTML = "Valor Presente";
+                    l2.innerHTML = "Interes";
+                    l3.innerHTML = "Numero de pagos";
+                    document.getElementById("condicion").innerHTML = "Considerar como i efectivo no anticipado de periodo:";
                     aparecer();
                     break;
                 }
@@ -149,14 +149,28 @@
             switch(parseInt(buscar.value)){
                 case 1:{
                     if(validar()){
-                        if(parseInt(document.getElementById("C2").value)>=0 && parseInt(document.getElementById("C1").value)>=0 && parseInt(document.getElementById("C3").value)>=0 && parseInt(document.getElementById("C4").value)>=0 && parseInt(document.getElementById("C5").value)>=0){
-                            console.log("vp = r((1-(1+i)^-n)/i)");
-                            let p = parseFloat(document.getElementById("C1").value);
-                            let i = conversor(parseFloat(document.getElementById("C2").value),true,2,"efectivo",false);
-                            let n = parseFloat(document.getElementById("C3").value);
-                            let res = p*((1-Math.pow((1+i),-n))/i);
-                            document.getElementById("resultado").innerHTML = res.toFixed(6);
-                            tabla(res,p,i,n);
+                        if(parseInt(document.getElementById("C2").value)>=0 && parseInt(document.getElementById("C1").value)>=0 && parseInt(document.getElementById("C3").value)>=0){
+                            if(document.getElementById("abono").value!="1"){
+                                if(parseInt(document.getElementById("C4").value)>=0 && parseInt(document.getElementById("C5").value)>=0){
+                                    console.log("vp = r((1-(1+i)^-n)/i)");
+                                    let p = parseFloat(document.getElementById("C1").value);
+                                    let i = conversor(parseFloat(document.getElementById("C2").value),true,2,"efectivo",false);
+                                    let n = parseFloat(document.getElementById("C3").value);
+                                    let res = p*((1-Math.pow((1+i),-n))/i);
+                                    document.getElementById("resultado").innerHTML = res.toFixed(6);
+                                    tabla(res,p,i,n);
+                                }else{
+                                    alert("Los campos deben ser mayores a 0");
+                                }
+                            }else{
+                                console.log("vp = r((1-(1+i)^-n)/i)");
+                                let p = parseFloat(document.getElementById("C1").value);
+                                let i = conversor(parseFloat(document.getElementById("C2").value),true,2,"efectivo",false);
+                                let n = parseFloat(document.getElementById("C3").value);
+                                let res = p*((1-Math.pow((1+i),-n))/i);
+                                document.getElementById("resultado").innerHTML = res.toFixed(6);
+                                tabla(res,p,i,n);
+                            }
                         }else{
                             alert("Los campos deben ser mayores a 0");
                         }
@@ -167,15 +181,30 @@
                 }
                 case 2:{
                     if(validar()){
-                        if(parseInt(document.getElementById("C2").value)>=0 && parseInt(document.getElementById("C1").value)>=0 && parseInt(document.getElementById("C3").value)>=0 && parseInt(document.getElementById("C4").value)>=0 && parseInt(document.getElementById("C5").value)>=0){
-                            console.log("r = vp/((1-(1+i)^-n)/i)");
-                            let s = parseFloat(document.getElementById("C1").value);
-                            let i = conversor(parseFloat(document.getElementById("C2").value),true,2,"efectivo",false);
-                            let n = parseFloat(document.getElementById("C3").value);
-                            let res = s/((1-Math.pow((1+i),-n))/i);
-                            document.getElementById("resultado").innerHTML = res.toFixed(6);
-                            console.log(s + "/vp/" + i + "/vp/" + n);
-                            tabla(s,res,i,n);
+                        if(parseInt(document.getElementById("C2").value)>=0 && parseInt(document.getElementById("C1").value)>=0 && parseInt(document.getElementById("C3").value)>=0){
+                            if(document.getElementById("abono").value!="1"){
+                                if(parseInt(document.getElementById("C4").value)>=0 && parseInt(document.getElementById("C5").value)>=0){
+                                    console.log("r = vp/((1-(1+i)^-n)/i)");
+                                    let s = parseFloat(document.getElementById("C1").value);
+                                    let i = conversor(parseFloat(document.getElementById("C2").value),true,2,"efectivo",false);
+                                    let n = parseFloat(document.getElementById("C3").value);
+                                    let res = s/((1-Math.pow((1+i),-n))/i);
+                                    document.getElementById("resultado").innerHTML = res.toFixed(6);
+                                    console.log(s + "/vp/" + i + "/vp/" + n);
+                                    tabla(s,res,i,n);
+                                }else{
+                                    alert("Los campos deben ser mayores a 0");
+                                }
+                            }else{
+                                console.log("r = vp/((1-(1+i)^-n)/i)");
+                                let s = parseFloat(document.getElementById("C1").value);
+                                let i = conversor(parseFloat(document.getElementById("C2").value),true,2,"efectivo",false);
+                                let n = parseFloat(document.getElementById("C3").value);
+                                let res = s/((1-Math.pow((1+i),-n))/i);
+                                document.getElementById("resultado").innerHTML = res.toFixed(6);
+                                console.log(s + "/vp/" + i + "/vp/" + n);
+                                tabla(s,res,i,n);
+                            }
                         }else{
                             alert("Los campos deben ser mayores a 0");
                         }
@@ -229,7 +258,7 @@
             let pabono = parseInt(document.getElementById("C4").value);
             let nabono = parseInt(document.getElementById("C5").value);
             for (let i = 1; i <= n; i++) {
-                if(vp == 0){
+                if(vp <= 0){
                     break;
                 }
                 switch(parseInt(abono.value)){
@@ -517,13 +546,10 @@
         if(document.getElementById("C3").style.display != "none" && document.getElementById("C3").value==""){
             return false
         }
-        if(document.getElementById("C4").style.display != "none" && document.getElementById("C4").value==""){
+        if(document.getElementById("C4").style.display != "none" && document.getElementById("C4").value=="" && document.getElementById("abono").value!="1"){
             return false
         }
-        if(document.getElementById("abono").style.display != "none" && document.getElementById("abono").value==""){
-            return false
-        }
-        if(document.getElementById("C5").style.display != "none" && document.getElementById("C5").value==""){
+        if(document.getElementById("C5").style.display != "none" && document.getElementById("C5").value=="" && document.getElementById("abono").value!="1"){
             return false
         }
         if(document.getElementById("C1").style.display != "none" && document.getElementById("C1").value==""){
