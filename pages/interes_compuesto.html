@@ -279,7 +279,7 @@
                         let p = parseFloat(document.getElementById("C2").value);
                         let n = parseFloat(document.getElementById("C3").value);
                         let res = conversor((Math.pow((s/p),(1/n))) - 1,false,2,"efectivo",false);
-                        document.getElementById("resultado").innerHTML = res.toFixed(6);
+                        document.getElementById("resultado").innerHTML = res.toFixed(6) + " " + name();
                     }else{
                         alert("Los campos deben ser mayores a 0");
                     }
@@ -421,5 +421,61 @@
         }
         return true
     }
+    function name (){
+        let name = "";
 
+        if(parseInt(document.getElementById("a_clase").value) == 1){
+            name += "% ";
+        }
+        switch(parseInt(document.getElementById("a_tasa").selectedIndex)){
+            case 1:{
+                name += "E";
+                break;
+            }
+            case 2:{
+                name += "P";
+                break;
+            }
+            case 3:{
+                name += "V";
+                break;
+            }
+            case 4:{
+                name += "C";
+                break;
+            }
+            case 5:{
+                name += "N";
+                break;
+            }
+        }
+        
+        switch(parseInt(document.getElementById("a_periodo").selectedIndex)){
+            case 1:{
+                name += "M";
+                break;
+            }
+            case 2:{
+                name += "B";
+                break;
+            }
+            case 3:{
+                name += "T";
+                break;
+            }
+            case 4:{
+                name += "C";
+                break;
+            }
+            case 5:{
+                name += "S";
+                break;
+            }
+            case 6:{
+                name += "A";
+                break;
+            }
+        }
+        return name;
+    }
 </script>

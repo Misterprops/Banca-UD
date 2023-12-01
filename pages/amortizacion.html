@@ -174,6 +174,7 @@
                             let n = parseFloat(document.getElementById("C3").value);
                             let res = s/((1-Math.pow((1+i),-n))/i);
                             document.getElementById("resultado").innerHTML = res.toFixed(6);
+                            console.log(s + "/vp/" + i + "/vp/" + n);
                             tabla(s,res,i,n);
                         }else{
                             alert("Los campos deben ser mayores a 0");
@@ -315,163 +316,163 @@
             if(clase == 1){
                 campo = campo/100;
             }
-            if(anticipada){
-                if(anticipada == a_anticipada){
-                    if(tasa == "efectivo"){
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                        }else{
-                            console.log("entra");
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                            campo = campo * (12/a_periodo);
-                            console.log(campo);
-                        }
+            if(anticipada == "true"){
+                    if(anticipada == a_anticipada){
+                            if(tasa == "efectivo"){
+                                if(a_tasa == tasa){
+                                    console.log("ant, =, ef, =");
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                }else{
+                                    console.log("ant, =, ef, !=");
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                    campo = campo * (12/a_periodo);
+                                    console.log(campo);
+                                }
+                            }else{
+                                if(a_tasa == tasa){
+                                    console.log("ant, =, no, =");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                    campo = campo*(12/a_periodo);
+                                    console.log(campo);
+                                }else{
+                                    console.log("ant, =, no, !=");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                }
+                            }
                     }else{
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                            campo = campo*(12/a_periodo);
-                            console.log(campo);
-                        }else{
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                        }
-                    }
-            }else{
-                    if(tasa == "efectivo"){
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                        }else{
-                            console.log("entra");
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo * (12/a_periodo);
-                            console.log(campo);
-                        }
-                    }else{
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo * (12/a_periodo);
-                            console.log(campo);
-                        }else{
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = campo/(1-campo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                        }
-                    }
-                }
-            }else{
-                if(anticipada == a_anticipada){
-                    if(tasa == "efectivo"){
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                        }else{
-                            console.log("entra");
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo * (12/a_periodo);
-                            console.log(campo);
-                        }
-                    }else{
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo*(12/a_periodo);
-                            console.log(campo);
-                        }else{
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                        }
+                            if(tasa == "efectivo"){
+                                if(a_tasa == tasa){
+                                    console.log("ant, !=, ef, =");
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                }else{
+                                    console.log("ant, !=, ef, !=");
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo * (12/a_periodo);
+                                    console.log(campo);
+                                }
+                            }else{
+                                if(a_tasa == tasa){
+                                    console.log("ant, !=, no, =");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo * (12/a_periodo);
+                                    console.log(campo);
+                                }else{
+                                    console.log("ant, !=, no, !=");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = campo/(1-campo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                }
+                            }
                     }
                 }else{
-                    if(tasa == "efectivo"){
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                        }else{
-                            console.log("entra");
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                            campo = campo*(12/a_periodo);
-                            console.log(campo);
-                        }
+                    if(anticipada == a_anticipada){
+                            if(tasa == "efectivo"){
+                                if(a_tasa == tasa){
+                                    console.log("!ant, =, ef, =");
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                }else{
+                                    console.log("!ant, =, ef, !=");
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo * (12/a_periodo);
+                                    console.log(campo);
+                                }
+                            }else{
+                                if(a_tasa == tasa){
+                                    console.log("!ant, =, no, =");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo*(12/a_periodo);
+                                    console.log(campo);
+                                }else{
+                                    console.log("!ant, =, no, !=");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                }
+                            }
                     }else{
-                        if(a_tasa == tasa){
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                            campo = campo * (12/a_periodo);
-                            console.log(campo);
-                        }else{
-                            console.log("entra");
-                            campo = campo/(12/periodo);
-                            console.log(campo);
-                            campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
-                            console.log(campo + "--" + periodo + "--" + a_periodo);
-                            campo = campo/(1+campo);
-                            console.log(campo);
-                        }
+                            if(tasa == "efectivo"){
+                                if(a_tasa == tasa){
+                                    console.log("!ant, !=, ef, =");
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                }else{
+                                    console.log("!ant, !=, ef, !=");
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                    campo = campo*(12/a_periodo);
+                                    console.log(campo);
+                                }
+                            }else{
+                                if(a_tasa == tasa){
+                                    console.log("!ant, !=, no, =");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                    campo = campo * (12/a_periodo);
+                                    console.log(campo);
+                                }else{
+                                    console.log("!ant, !=, no, !=");
+                                    campo = campo/(12/periodo);
+                                    console.log(campo);
+                                    campo = (Math.pow(1+campo,(12/parseInt(periodo))/(12/parseInt(a_periodo))))-1;
+                                    console.log(campo + "--" + periodo + "--" + a_periodo);
+                                    campo = campo/(1+campo);
+                                    console.log(campo);
+                                }
+                            }
                     }
                 }
-            }
             if(a_clase == 1){
                 campo = campo*100;
             }
